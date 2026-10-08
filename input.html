@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="kk">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Қысқаша көбейту формулалары · 7-сынып</title>
+<style>
+:root{--paper:#f7faff;--grid:#d3e0f5;--ink:#1c2b5a;--red:#d2362b;--green:#1f8a4c;--mark:#ffe27a;--blue:#9ec0ff;--card:#fff}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;font:17px/1.6 system-ui,sans-serif;color:var(--ink);background-color:var(--paper);background-image:linear-gradient(var(--grid) 1px,transparent 1px),linear-gradient(90deg,var(--grid) 1px,transparent 1px);background-size:28px 28px}
+h1,h2,h3{font-family:Georgia,"Times New Roman",serif;line-height:1.2;margin:0 0 .5em}
+h1{font-size:clamp(2rem,6vw,3.4rem)}
+h2{font-size:1.8rem;border-bottom:3px solid var(--red);display:inline-block;padding-bottom:2px}
+nav{position:sticky;top:0;background:var(--ink);display:flex;gap:4px;overflow-x:auto;padding:6px 10px;z-index:5}
+nav a{color:#fff;text-decoration:none;padding:6px 14px;border-radius:6px;white-space:nowrap}
+nav a:hover,nav a:focus-visible{background:var(--red);outline:none}
+main{max-width:860px;margin:0 auto;padding:0 16px}
+section{padding:36px 0}
+.hero{padding-top:44px}
+.f{font-family:Georgia,serif;font-size:1.25em;background:var(--mark);padding:1px 8px;border-radius:4px;white-space:nowrap}
+.card{background:var(--card);border:2px solid var(--ink);border-radius:10px;padding:16px 18px;margin:14px 0}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:14px}
+.grid .card{margin:0}
+.warn{border-color:var(--red);background:#fff1ef}
+button{font:inherit;cursor:pointer;border:2px solid var(--ink);background:var(--card);color:var(--ink);border-radius:8px;padding:8px 14px}
+button:hover{background:var(--mark)}
+button:focus-visible,input:focus-visible,summary:focus-visible{outline:3px solid var(--red);outline-offset:2px}
+button.primary{background:var(--ink);color:#fff}
+details{background:var(--card);border:2px solid var(--ink);border-radius:10px;padding:10px 16px;margin:12px 0}
+summary{cursor:pointer;font-weight:600}
+details p{margin:.4em 0}
+/* square */
+.sq-wrap{display:flex;flex-wrap:wrap;gap:20px;align-items:center}
+#sq{display:grid;width:270px;height:270px;border:2px solid var(--ink);background:#fff;flex:none}
+#sq div{display:flex;align-items:center;justify-content:center;font-weight:700;font-size:.9rem;border:1px solid var(--ink);overflow:hidden}
+.ctl label{display:block;margin:6px 0}
+.ctl input[type=range]{width:200px;vertical-align:middle}
+#sqf{font-size:1.1rem}
+/* quiz */
+.opts{display:grid;gap:8px;margin:12px 0}
+.opts button{text-align:left}
+.ok{background:#d9f3e3!important;border-color:var(--green)!important}
+.bad{background:#ffdcd8!important;border-color:var(--red)!important}
+#fb{min-height:1.6em;font-weight:600}
+/* memory */
+#mem{display:grid;grid-template-columns:repeat(auto-fill,minmax(130px,1fr));gap:10px;margin:12px 0}
+#mem button{min-height:76px;font-family:Georgia,serif;font-size:.95rem;padding:6px}
+#mem button.shut{background:var(--ink);color:var(--ink)}
+#mem button.done{background:#d9f3e3;border-color:var(--green)}
+input[type=text]{font:inherit;padding:8px 10px;border:2px solid var(--ink);border-radius:8px;width:150px}
+.big{font-size:2rem;font-family:Georgia,serif}
+footer{text-align:center;padding:24px;color:#4a5a8a}
+@media (prefers-reduced-motion:no-preference){#sq div{transition:all .25s}}
+</style>
+</head>
+<body>
+<nav>
+<a href="#teoriya">Теория</a><a href="#misal">Мысалдар</a><a href="#bekitu">Бекіту</a><a href="#oyin">Ойындар</a>
+</nav>
+<main>
+
+<section class="hero">
+<h1>Қысқаша көбейту формулалары</h1>
+<p>7-сынып · Алгебра. Көпмүшені көбейтпей-ақ, дайын формуламен жылдам есептеуді үйренеміз.</p>
+<div class="card">
+<h3>Неге (a + b)² = a² + 2ab + b²?</h3>
+<p>Қабырғасы a + b шаршыны төрт бөлікке бөлеміз. Жүгірткілерді жылжытыңыз:</p>
+<div class="sq-wrap">
+<div id="sq" aria-label="Шаршының бөліктері"></div>
+<div class="ctl">
+<label>a = <b id="av">5</b> <input type="range" id="a" min="1" max="9" value="5"></label>
+<label>b = <b id="bv">3</b> <input type="range" id="b" min="1" max="9" value="3"></label>
+<p id="sqf"></p>
+</div>
+</div>
+</div>
+</section>
+
+<section id="teoriya">
+<h2>Теория</h2>
+<div class="grid">
+<div class="card"><h3>Қосындының квадраты</h3><p class="f">(a + b)² = a² + 2ab + b²</p><p>Бірінші санның квадраты, қосу екі еселенген көбейтінді, қосу екінші санның квадраты.</p></div>
+<div class="card"><h3>Айырманың квадраты</h3><p class="f">(a − b)² = a² − 2ab + b²</p><p>Ортасындағы екі еселенген көбейтіндінің таңбасы теріс.</p></div>
+<div class="card"><h3>Квадраттар айырмасы</h3><p class="f">a² − b² = (a − b)(a + b)</p><p>Екі квадраттың айырмасы — айырма мен қосындының көбейтіндісі.</p></div>
+<div class="card"><h3>Кубтардың қосындысы</h3><p class="f">a³ + b³ = (a + b)(a² − ab + b²)</p></div>
+<div class="card"><h3>Кубтардың айырмасы</h3><p class="f">a³ − b³ = (a − b)(a² + ab + b²)</p></div>
+</div>
+<div class="card warn">
+<h3>Жиі қате</h3>
+<p>(a + b)² ≠ a² + b². Тексеріңіз: a = 2, b = 3 болса, (2 + 3)² = 25, ал 2² + 3² = 13. Ортаңғы 2ab = 12 жоғалып кетті.</p>
+</div>
+</section>
+
+<section id="misal">
+<h2>Мысалдар</h2>
+<p>Алдымен өзіңіз шешіп көріңіз, содан кейін жауабын ашыңыз.</p>
+<details><summary>1. (3x + 2)² өрнегін жазыңыз</summary>
+<p>Мұнда a = 3x, b = 2.</p>
+<p>(3x)² + 2·3x·2 + 2² = <b>9x² + 12x + 4</b></p></details>
+<details><summary>2. 64 − 25y² өрнегін көбейткіштерге жіктеңіз</summary>
+<p>64 = 8², 25y² = (5y)².</p>
+<p>8² − (5y)² = <b>(8 − 5y)(8 + 5y)</b></p></details>
+<details><summary>3. 97 · 103 көбейтіндісін санаңыз (калькуляторсыз)</summary>
+<p>97 = 100 − 3, 103 = 100 + 3.</p>
+<p>(100 − 3)(100 + 3) = 100² − 3² = 10000 − 9 = <b>9991</b></p></details>
+<details><summary>4. 49² санын жылдам есептеңіз</summary>
+<p>49 = 50 − 1.</p>
+<p>(50 − 1)² = 2500 − 100 + 1 = <b>2401</b></p></details>
+</section>
+
+<section id="bekitu">
+<h2>Бекіту</h2>
+<div class="card">
+<p id="qn"></p>
+<div class="big" id="qt"></div>
+<div class="opts" id="qo"></div>
+<div id="fb" aria-live="polite"></div>
+<button class="primary" id="qnext" hidden>Келесі сұрақ</button>
+</div>
+</section>
+
+<section id="oyin">
+<h2>Ойындар</h2>
+<div class="card">
+<h3>1. Жұпты тап</h3>
+<p>Формуланы оның жіктелуімен жұптастырыңыз. Қадам саны: <b id="mv">0</b></p>
+<div id="mem"></div>
+<button id="mre">Қайтадан бастау</button>
+<p id="mwin" aria-live="polite"></p>
+</div>
+<div class="card">
+<h3>2. Жылдам есеп (45 секунд)</h3>
+<p>Формуланы қолданып, санды ойша есептеңіз. Жауапты жазып, Enter басыңыз.</p>
+<p>Уақыт: <b id="tm">45</b> · Ұпай: <b id="sc">0</b></p>
+<div class="big" id="sq2">—</div>
+<p><input type="text" id="ans" inputmode="numeric" disabled aria-label="Жауап"> <button class="primary" id="go">Бастау</button></p>
+<p id="sres" aria-live="polite"></p>
+</div>
+</section>
+</main>
+<footer>7-сынып алгебрасы · Қысқаша көбейту формулалары</footer>
+
+<script>
+const $=id=>document.getElementById(id);
+const shuffle=a=>{a=a.slice();for(let i=a.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]]}return a};
+
+/* Шаршы */
+function drawSq(){
+  const a=+$('a').value,b=+$('b').value,u=270/(a+b);
+  $('av').textContent=a;$('bv').textContent=b;
+  const s=$('sq');
+  s.style.gridTemplateColumns=a*u+'px '+b*u+'px';
+  s.style.gridTemplateRows=a*u+'px '+b*u+'px';
+  s.innerHTML='<div style="background:#9ec0ff">a²</div><div style="background:#ffe27a">ab</div><div style="background:#ffe27a">ab</div><div style="background:#ffb3ac">b²</div>';
+  $('sqf').innerHTML='('+a+' + '+b+')² = '+a*a+' + '+2*a*b+' + '+b*b+' = <b>'+(a+b)*(a+b)+'</b>';
+}
+$('a').oninput=$('b').oninput=drawSq;drawSq();
+
+/* Бекіту */
+const Q=[
+["(x + 3)² = ?",["x² + 9","x² + 6x + 9","x² + 3x + 9","x² + 6x + 6"],1],
+["(2a − 1)² = ?",["4a² − 1","2a² − 4a + 1","4a² − 4a + 1","4a² − 2a + 1"],2],
+["x² − 16 = ?",["(x − 4)(x + 4)","(x − 4)²","(x + 4)²","(x − 8)(x + 2)"],0],
+["49 − y² = ?",["(7 − y)²","(7 − y)(7 + y)","(49 − y)(1 + y)","(7 + y)²"],1],
+["101² = ? (қысқаша формуламен)",["10 001","10 201","10 211","10 021"],1],
+["98 · 102 = ?",["9996","9986","10 004","9904"],0],
+["(a + b)² − (a − b)² = ?",["2ab","2a²","4ab","0"],2],
+["25 − 10x + x² = ?",["(5 + x)²","(25 − x)²","(5 − x)²","(x − 25)²"],2]
+];
+let qi=0,qs=0;
+function showQ(){
+  const [t,o,c]=Q[qi];
+  $('qn').textContent='Сұрақ '+(qi+1)+' / '+Q.length;
+  $('qt').textContent=t;$('fb').textContent='';$('qnext').hidden=true;
+  $('qo').innerHTML='';
+  o.forEach((x,i)=>{
+    const b=document.createElement('button');b.textContent=x;
+    b.onclick=()=>{
+      [...$('qo').children].forEach((k,j)=>{k.disabled=true;if(j===c)k.classList.add('ok')});
+      if(i===c){qs++;$('fb').textContent='Дұрыс!'}
+      else{b.classList.add('bad');$('fb').textContent='Қате. Дұрыс жауап: '+o[c]}
+      $('qnext').hidden=false;
+      $('qnext').textContent=qi===Q.length-1?'Нәтижені көру':'Келесі сұрақ';
+    };
+    $('qo').appendChild(b);
+  });
+}
+$('qnext').onclick=()=>{
+  if(qi<Q.length-1){qi++;showQ();return}
+  $('qn').textContent='Аяқталды';
+  $('qt').textContent=qs+' / '+Q.length;
+  $('qo').innerHTML='';
+  $('fb').textContent=qs>=7?'Өте жақсы!':qs>=5?'Жақсы. Қателерді теория бөлімінен қайталаңыз.':'Теорияны қайта оқып, қайталап көріңіз.';
+  $('qnext').textContent='Қайтадан бастау';
+  $('qnext').onclick=()=>{qi=0;qs=0;location.reload()};
+};
+showQ();
+
+/* Жұпты тап */
+const P=[["(a + b)²","a² + 2ab + b²"],["(a − b)²","a² − 2ab + b²"],["a² − b²","(a − b)(a + b)"],["(a + b)³","a³ + 3a²b + 3ab² + b³"],["a³ + b³","(a + b)(a² − ab + b²)"],["a³ − b³","(a − b)(a² + ab + b²)"]];
+let open=[],moves=0,found=0;
+function initMem(){
+  open=[];moves=0;found=0;$('mv').textContent=0;$('mwin').textContent='';
+  const cards=shuffle(P.flatMap((p,i)=>[{i,t:p[0]},{i,t:p[1]}]));
+  $('mem').innerHTML='';
+  cards.forEach(c=>{
+    const b=document.createElement('button');b.className='shut';b.textContent=c.t;
+    b.onclick=()=>{
+      if(open.length===2||!b.classList.contains('shut'))return;
+      b.classList.remove('shut');open.push([b,c]);
+      if(open.length===2){
+        moves++;$('mv').textContent=moves;
+        const [x,y]=open;
+        if(x[1].i===y[1].i){x[0].classList.add('done');y[0].classList.add('done');open=[];found++;
+          if(found===P.length)$('mwin').textContent='Жарайсың! '+moves+' қадамда тапты.'}
+        else setTimeout(()=>{x[0].classList.add('shut');y[0].classList.add('shut');open=[]},900);
+      }
+    };
+    $('mem').appendChild(b);
+  });
+}
+$('mre').onclick=initMem;initMem();
+
+/* Жылдам есеп */
+let t=0,sc=0,cur=0,timer=null;
+function newQ(){
+  const k=Math.floor(Math.random()*3)+1,n=[20,30,50,100][Math.floor(Math.random()*4)],r=Math.random();
+  if(r<.34){const s=Math.random()<.5?1:-1;cur=(n+s*k)**2;$('sq2').textContent=(n+s*k)+'²'}
+  else if(r<.67){cur=n*n-k*k;$('sq2').textContent=(n-k)+' · '+(n+k)}
+  else{const m=Math.floor(Math.random()*8)+2;cur=(m*10+1)**2;$('sq2').textContent=(m*10+1)+'²'}
+  $('ans').value='';$('ans').focus();
+}
+function endGame(){
+  clearInterval(timer);$('ans').disabled=true;$('go').disabled=false;
+  $('sq2').textContent='—';$('sres').textContent='Ойын біткен. Ұпайыңыз: '+sc+'.';
+}
+$('go').onclick=()=>{
+  t=45;sc=0;$('tm').textContent=t;$('sc').textContent=0;$('sres').textContent='';
+  $('ans').disabled=false;$('go').disabled=true;newQ();
+  timer=setInterval(()=>{t--;$('tm').textContent=t;if(t<=0)endGame()},1000);
+};
+$('ans').onkeydown=e=>{
+  if(e.key!=='Enter')return;
+  if(+$('ans').value===cur){sc++;$('sc').textContent=sc;$('sres').textContent='Дұрыс!'}
+  else $('sres').textContent='Қате. Дұрыс жауап: '+cur;
+  newQ();
+};
+</script>
+</body>
+</html>
